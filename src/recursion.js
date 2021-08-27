@@ -125,11 +125,24 @@ var exponent = function(base, exp) {
   }
 };
 
+
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  if (n === 1) {
+    return true;
+  }
+  if (n < 1) {
+    return false;
+  }
+  else {
+    return powerOfTwo(n / 2);
+      //(5) -> powerOfTwo(5 / 2) = 2.5
+        //(2.5) -> powerOfTwo(2.5 / 2) = 1.25
+          //(1.25) -> powerOfTwo(1.25 / 2) = 0.625
+  }
 };
 
 // 9. Write a function that reverses a string.
