@@ -82,21 +82,23 @@ var sumBelow = function(n) {
 // range(7,2); // [6,5,4,3]
 // range(3,8); // [4,5,6,7]
 var range = function(x, y) {
-  if (y - x === 0 || y - x === 1 || y - x === -1) {
+  if (y - x === 0 || y - x === 1 || y - x === -1) { //the last or for negatives
     return [];
   }
   if (y - x === 2) {
     return [x + 1];
   }
+  //for negatives
   else if ((y - x) < 0) {
     var arr = range(x, y + 1);
     arr.push(y + 1);
     return arr;
   }
-   else if ((y - x) > 0) {
-    var arr = range(x, y - 1);
-    arr.push(y - 1);
-    return arr;
+  //for positives
+   else {
+    var arr = range(x, y - 1); //(3,7) (3,6) (3,5) (3,4) (3,3) (3,2)
+    arr.push(y - 1); //last
+    return arr; //finally returns the array
   }
 };
 
@@ -106,6 +108,19 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  }
+  if (exp === 1) {
+    return base;
+  }
+  if (exp === 0) {
+    return 0;
+  } else {
+    exp = exp - 1;
+    base = base * exponent(base);
+    return base;
+  }
 };
 
 // 8. Determine if a number is a power of two.
