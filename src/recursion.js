@@ -6,6 +6,9 @@
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
+
+
+
 var factorial = function(n) {
   if (n < 0) {
     return null;
@@ -81,6 +84,7 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 // range(7,2); // [6,5,4,3]
 // range(3,8); // [4,5,6,7]
+
 var range = function(x, y) {
   if (y - x === 0 || y - x === 1 || y - x === -1) { //the last or for negatives
     return [];
@@ -114,12 +118,10 @@ var exponent = function(base, exp) {
   if (exp === 1) {
     return base;
   }
-  if (exp === 0) {
-    return 0;
+  if (exp < 0) {
+    return exponent(base, exp + 1) / base;
   } else {
-    exp = exp - 1;
-    base = base * exponent(base);
-    return base;
+    return exponent(base, exp - 1) * base;
   }
 };
 
