@@ -147,10 +147,39 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string === "") {
+    return "";
+  } else {
+    return reverse(string.substr(1)) + string.charAt(0);
+    //daniel
+      //aniel + d
+        //niel + a
+          //iel + n
+            //el + i <--
+              //l + e <--
+                //"" + l <--
+                //return "" + l
+                  //"l" + e
+                    //"le" + i
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
+//racecar = true
+  //lowercase
+  //hannah
+    // check first and last element
+      //if same, slice the string and remove the first and last. get the middle parts
+        //check again the first and last of the middle parts
 var palindrome = function(string) {
+  string = string.toLowerCase();
+  if (string.length < 2) {
+    return true;
+  }
+  if (string.slice(0, 1) === string.slice(-1)) {
+    return palindrome(string.slice(1, -1));
+  }
+    return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
